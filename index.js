@@ -8,7 +8,6 @@ import {
 import { initNavigate } from "./pages/navigate/navigate.js"
 import { showMatchObject } from "./pages/show-match/match.js"
 import { initBooks } from "./pages/books/books.js"
-import { initFindUser } from "./pages/findUser/findUser.js"
 import { initEditbook } from "./pages/editBook/editBook.js"
 import { initAddBook } from "./pages/addBook/addBook.js"
 
@@ -16,7 +15,6 @@ window.addEventListener("load", async () => {
 
   const templateAbout = await loadTemplate("./pages/about/about.html")
   const templateBooks = await loadTemplate("./pages/books/books.html")
-  const templateFindUser = await loadTemplate("./pages/findUser/findUser.html")
   const templateEditBook = await loadTemplate("./pages/editBook/editBook.html")
   const templateNavigate = await loadTemplate("./pages/navigate/navigate.html")
   const templateMatch = await loadTemplate("./pages/show-match/match.html")
