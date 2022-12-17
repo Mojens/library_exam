@@ -16,6 +16,10 @@ window.addEventListener("load", async () => {
   const templateEditBook = await loadTemplate("./pages/editBook/editBook.html")
   const templateNotFound = await loadTemplate("./pages/notFound/notFound.html")
   const templateAddBook = await loadTemplate("./pages/addBook/addBook.html")
+  const templateExceededBooks = await loadTemplate("./pages/exceededBooks/exceededBooks.html")
+  const templateBorrowedBooks = await loadTemplate("./pages/borrowedBooks/borrowedBooks.html")
+  const templateAddLoan = await loadTemplate("./pages/addLoan/addLoan.html")
+  const templateAddReservation = await loadTemplate("./pages/addReservation/addReservation.html")
 
   adjustForMissingHash()
 
@@ -51,6 +55,18 @@ window.addEventListener("load", async () => {
       "/add-book": () => {
         renderTemplate(templateAddBook, "content")
         initAddBook()
+      }, 
+      "/add-loan": () => {
+        renderTemplate(templateAddLoan, "content")
+      },
+      "/add-reservation": () => {
+        renderTemplate(templateAddReservation, "content")
+      },
+      "/exceeded-books": () => {
+        renderTemplate(templateExceededBooks, "content")
+      },
+      "/borrowed-books": () => {
+        renderTemplate(templateBorrowedBooks, "content")
       }
     })
     .notFound(() => {
