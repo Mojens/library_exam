@@ -1,1 +1,1 @@
-export const SERVER_URL = "https://jsonplaceholder.typicode.com/users/";
+export const SERVER_URL = "http://localhost:8080/api/books";
