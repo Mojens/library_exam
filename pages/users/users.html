@@ -1,0 +1,36 @@
+<template>
+  <h3>Get all users</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>&nbsp</th>
+      </tr>
+    </thead>
+    <tbody id="tbl-body">
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p style="color:red;">
+            Here details are presented as the raw data. In a real project, present it nicely</p>
+          <div id="user-content"></div>
+        </div>
+        <div class="modal-footer" id="all-user-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <template>
