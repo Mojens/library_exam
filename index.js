@@ -5,8 +5,6 @@ import {
   setActiveLink, adjustForMissingHash, renderTemplate, loadTemplate
 } from "./utils.js"
 
-import { initNavigate } from "./pages/navigate/navigate.js"
-import { showMatchObject } from "./pages/show-match/match.js"
 import { initBooks } from "./pages/books/books.js"
 import { initEditbook } from "./pages/editBook/editBook.js"
 import { initAddBook } from "./pages/addBook/addBook.js"
@@ -16,8 +14,6 @@ window.addEventListener("load", async () => {
   const templateAbout = await loadTemplate("./pages/about/about.html")
   const templateBooks = await loadTemplate("./pages/books/books.html")
   const templateEditBook = await loadTemplate("./pages/editBook/editBook.html")
-  const templateNavigate = await loadTemplate("./pages/navigate/navigate.html")
-  const templateMatch = await loadTemplate("./pages/show-match/match.html")
   const templateNotFound = await loadTemplate("./pages/notFound/notFound.html")
   const templateAddBook = await loadTemplate("./pages/addBook/addBook.html")
 
@@ -55,16 +51,6 @@ window.addEventListener("load", async () => {
       "/add-book": () => {
         renderTemplate(templateAddBook, "content")
         initAddBook()
-      },
-
-      "/navigate-programatically": () => {
-        renderTemplate(templateNavigate, "content")
-        initNavigate()
-      },
-
-      "/show-match": (match) => {
-        renderTemplate(templateMatch, "content")
-        showMatchObject(match)
       }
     })
     .notFound(() => {
