@@ -1,4 +1,4 @@
-import { SERVER_URL as URL } from "../../settings.js"
+import { SERVER_URL, SERVER_URL as URL } from "../../settings.js"
 import { sanitizeStringWithTableRows, handleHttpErrors } from "../../utils.js"
 
 
@@ -68,6 +68,7 @@ async function showbookDetails(evt) {
   document.getElementById("status-modal-dot").style.backgroundColor = "green"
   document.getElementById("loan-info").style.display = "none"
   document.getElementById("reservation-info").style.display = "none"
+  document.getElementById("member-info").style.display = "none"
 
   document.getElementById("book-title-modal").innerHTML = "<b>Title: </b>" + book.title
   document.getElementById("book-author-modal").innerHTML = "<b>Author: </b>" + book.author
@@ -85,13 +86,29 @@ async function showbookDetails(evt) {
   }
   if (book.reservation != null) {
     document.getElementById("status-modal-dot").style.backgroundColor = "#DEC20B"
-    console.log(book.reservation)
     document.getElementById("reservation-info").style.display = "block"
-
+  
     document.getElementById("reservation-id-modal").innerHTML = "<b>Reservation ID: </b>" + book.reservation.reservationId
     document.getElementById("reservation-date-modal").innerHTML = "<b>Reservation Date: </b>" + book.reservation.reservationDate
-    document.getElementById("member-reservation-modal").innerHTML = "<b>Reservation Status: </b>" + book.reservation.memberId
   }
+    if(book.loan != undefined){
+      const member = await fetch(SERVER_URL + "/members/" + book.loan.memberId).then(res => res.json())
+      document.getElementById("member-info").style.display = "block"
+      document.getElementById("member-username-modal").innerHTML = ""
+      document.getElementById("member-email-modal").innerHTML = ""
+      document.getElementById("member-username-modal").innerHTML = "<b>Member User Name: </b>" + member.userName
+      document.getElementById("member-email-modal").innerHTML = "<b>Member Email: </b>" + member.email
+    }
+    if(book.reservation != undefined){
+      const member = await fetch(SERVER_URL + "/members/" + book.reservation.memberId).then(res => res.json())
+      console.log("called")
+      document.getElementById("member-info").style.display = "block"
+      document.getElementById("member-username-modal").innerHTML = ""
+      document.getElementById("member-email-modal").innerHTML = ""
+      document.getElementById("member-username-modal").innerHTML = "<b>Member User Name: </b>" + member.userName
+      document.getElementById("member-email-modal").innerHTML = "<b>Member Email: </b>" + member.email
+    }
+  
 
   if (target.classList.contains("delete-book-button")) {
     const delete_id = id.replace("-delete-book", "")

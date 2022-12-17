@@ -54,6 +54,7 @@ async function showbookDetails(evt) {
     document.getElementById("status-modal-dot").style.backgroundColor = "green"
     document.getElementById("loan-info").style.display = "none"
     document.getElementById("reservation-info").style.display = "none"
+    document.getElementById("member-info").style.display = "none"
 
     document.getElementById("book-title-modal").innerHTML = "<b>Title: </b>" + book.title
     document.getElementById("book-author-modal").innerHTML = "<b>Author: </b>" + book.author
@@ -84,6 +85,23 @@ async function showbookDetails(evt) {
         deletebook(delete_id)
         location.reload()
     }
+    if(book.loan != undefined){
+        const member = await fetch(SERVER_URL + "/members/" + book.loan.memberId).then(res => res.json())
+        document.getElementById("member-info").style.display = "block"
+        document.getElementById("member-username-modal").innerHTML = ""
+        document.getElementById("member-email-modal").innerHTML = ""
+        document.getElementById("member-username-modal").innerHTML = "<b>Member User Name: </b>" + member.userName
+        document.getElementById("member-email-modal").innerHTML = "<b>Member Email: </b>" + member.email
+      }
+      if(book.reservation != undefined){
+        const member = await fetch(SERVER_URL + "/members/" + book.reservation.memberId).then(res => res.json())
+        console.log("called")
+        document.getElementById("member-info").style.display = "block"
+        document.getElementById("member-username-modal").innerHTML = ""
+        document.getElementById("member-email-modal").innerHTML = ""
+        document.getElementById("member-username-modal").innerHTML = "<b>Member User Name: </b>" + member.userName
+        document.getElementById("member-email-modal").innerHTML = "<b>Member Email: </b>" + member.email
+      }
 }
 
 async function deletebook(id) {
