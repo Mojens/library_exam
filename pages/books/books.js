@@ -2,7 +2,7 @@ import { SERVER_URL as URL } from "../../settings.js"
 import { sanitizeStringWithTableRows, handleHttpErrors } from "../../utils.js"
 
 
-export function initUsers() {
+export function initBooks() {
   document.getElementById("tbl-body").onclick = showbookDetails
   document.getElementById("exampleModal").onclick = showbookDetails
   getAllbooks()
@@ -80,7 +80,7 @@ async function showbookDetails(evt) {
   if (target.classList.contains("delete-book-button")) {
     const delete_id = id.replace("-delete-book", "")
     deletebook(delete_id)
-    getAllbooks()
+    location.reload()
   }
 }
 

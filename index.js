@@ -7,21 +7,21 @@ import {
 
 import { initNavigate } from "./pages/navigate/navigate.js"
 import { showMatchObject } from "./pages/show-match/match.js"
-import { initUsers } from "./pages/users/users.js"
+import { initBooks } from "./pages/books/books.js"
 import { initFindUser } from "./pages/findUser/findUser.js"
 import { initEditUser } from "./pages/editUser/editUser.js"
-import { initAddUser } from "./pages/addUser/addUser.js"
+import { initAddBook } from "./pages/addBook/addBook.js"
 
 window.addEventListener("load", async () => {
 
   const templateAbout = await loadTemplate("./pages/about/about.html")
-  const templateUsers = await loadTemplate("./pages/users/users.html")
+  const templateBooks = await loadTemplate("./pages/books/books.html")
   const templateFindUser = await loadTemplate("./pages/findUser/findUser.html")
   const templateEditUser = await loadTemplate("./pages/editUser/editUser.html")
   const templateNavigate = await loadTemplate("./pages/navigate/navigate.html")
   const templateMatch = await loadTemplate("./pages/show-match/match.html")
   const templateNotFound = await loadTemplate("./pages/notFound/notFound.html")
-  const templateAddUser = await loadTemplate("./pages/addUser/addUser.html")
+  const templateAddBook = await loadTemplate("./pages/addBook/addBook.html")
 
   adjustForMissingHash()
 
@@ -46,9 +46,9 @@ window.addEventListener("load", async () => {
      `,
       "/about": () => renderTemplate(templateAbout, "content"),
 
-      "/users": () => {
-        renderTemplate(templateUsers, "content")
-        initUsers()
+      "/books": () => {
+        renderTemplate(templateBooks, "content")
+        initBooks()
       },
       "/find-user": (match) => {
         renderTemplate(templateFindUser, "content")
@@ -58,9 +58,9 @@ window.addEventListener("load", async () => {
         renderTemplate(templateEditUser, "content")
         initEditUser(match)
       },
-      "/add-user": (match) => {
-        renderTemplate(templateAddUser, "content")
-        initAddUser()
+      "/add-book": () => {
+        renderTemplate(templateAddBook, "content")
+        initAddBook()
       },
 
       "/navigate-programatically": () => {

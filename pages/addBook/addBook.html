@@ -1,0 +1,41 @@
+<template>
+    <h1>Register New Book</h1>
+
+    <form id="create-form">
+        <h3 style="margin-top: 1em;" id="id"></h3>
+        <div class="form-row">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="inputEmail4">Title</label>
+                <input type="text" class="form-control" id="title-create-input" placeholder="Harry Potter & co." required>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="inputPassword4">Author</label>
+                <input type="text" class="form-control" id="author-create-input" placeholder="J.K Rowling" required>
+            </div>
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="inputAddress">isbn</label>
+            <input type="text" class="form-control" id="isbn-create-input" placeholder="12312333" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="inputAddress2">publisher</label>
+            <input type="text" class="form-control" id="publisher-create-input" placeholder="Gyldendal" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="inputAddress2">Publish Year</label>
+            <input type="text" class="form-control" id="publish-year-create-input" placeholder="2008" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <div class="form-check">
+                <input class="form-check-input bg-dark" type="checkbox" id="gridCheck" required>
+                <label class="form-check-label" for="gridCheck">
+                    Er du sikker ?
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark">Register New Book</button>
+    </form>
+
+
+
+</template>
