@@ -1,0 +1,59 @@
+<template>
+    <h3 style="margin-top: 2%;">Exceeded Books Overview</h3>
+    <h2 id="error" style="color: red;display: none;"></h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Publisher</th>
+          <th>Publish Year</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tbl-body">
+      </tbody>
+    </table>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="exampleModalLabel"></h2>
+            <span class="dot" id="status-modal-dot" style="height: 25px;width: 25px;border-radius: 50%;display: inline-block;margin-left: 25%;"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="book-content">
+              <h3 style="text-decoration: underline;">Book info</h3>
+              <h5 id="book-title-modal"></h5>
+              <h5 id="book-author-modal"></h5>
+              <h5 id="book-publisher-modal"></h5>
+              <h5 id="book-publish-year-modal"></h5>
+              <h5 id="book-isbn-modal"></h5>
+              <div id="loan-info" style="display: none;">
+                <h3 style="text-decoration: underline;">Loan info</h3>
+                <h5 id="loan-id-modal"></h5>
+                <h5 id="check-out-date-modal"></h5>
+                <h5 id="due-date-modal"></h5>
+                <h5 id="return-date-modal"></h5>
+                <h5 id="member-loan-modal"></h5>
+              </div>
+              <div id="reservation-info" style="display: none;">
+                <h3 style="text-decoration: underline;">Reservation info</h3>
+                <h5 id="reservation-id-modal"></h5>
+                <h5 id="reservation-date-modal"></h5>
+                <h5 id="member-reservation-modal"></h5>
+                <ul id="book-id-reserved-modal"></ul>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer" id="all-book-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <template>
