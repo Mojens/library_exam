@@ -8,6 +8,8 @@ import {
 import { initBooks } from "./pages/books/books.js"
 import { initEditbook } from "./pages/editBook/editBook.js"
 import { initAddBook } from "./pages/addBook/addBook.js"
+import { initBorrowedBooks } from "./pages/borrowedBooks/borrowedBooks.js"
+import { initExceededBooks } from "./pages/exceededBooks/exceededBooks.js"
 
 window.addEventListener("load", async () => {
 
@@ -64,9 +66,11 @@ window.addEventListener("load", async () => {
       },
       "/exceeded-books": () => {
         renderTemplate(templateExceededBooks, "content")
+        initExceededBooks()
       },
       "/borrowed-books": () => {
         renderTemplate(templateBorrowedBooks, "content")
+        initBorrowedBooks()
       }
     })
     .notFound(() => {
