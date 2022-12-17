@@ -46,13 +46,9 @@ window.addEventListener("load", async () => {
      `,
       "/about": () => renderTemplate(templateAbout, "content"),
 
-      "/books": () => {
+      "/books": (match) => {
         renderTemplate(templateBooks, "content")
-        initBooks()
-      },
-      "/find-user": (match) => {
-        renderTemplate(templateFindUser, "content")
-        initFindUser(match)
+        initBooks(match)
       },
       "/edit-book": (match) => {
         renderTemplate(templateEditBook, "content")

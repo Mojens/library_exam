@@ -1,5 +1,12 @@
 <template>
-  <h3>All Books</h3>
+  <div id="search-book">
+    <h3>Find Book by ID</h3>
+      <input type="search" placeholder="Search for a book" width="50%" style="padding: 0.3%;" id="find-book-id">
+      <button class="btn btn-dark" type="submit" id="find-book-btn">Search for book</button>
+      <button class="btn btn-dark" type="submit" id="get-all-book-btn">Get All Books</button>
+  </div>
+  <h3 style="margin-top: 2%;">Book Overview</h3>
+  <h2 id="error" style="color: red;display: none;"></h2>
   <table class="table">
     <thead>
       <tr>

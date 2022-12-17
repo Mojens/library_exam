@@ -2,16 +2,32 @@ import { SERVER_URL as URL } from "../../settings.js"
 import { sanitizeStringWithTableRows, handleHttpErrors } from "../../utils.js"
 
 
-export function initBooks() {
+export function initBooks(match) {
   document.getElementById("tbl-body").onclick = showbookDetails
   document.getElementById("exampleModal").onclick = showbookDetails
-  getAllbooks()
+  document.getElementById("find-book-btn").onclick = findBookById
+  document.getElementById("get-all-book-btn").onclick = getAllbooks
+  if (match?.params?.id) {
+    const id = match.params.id
+    try {
+        renderBook(id)
+        window.router.navigate("books?id=" + id)
+    } catch (err) {
+        document.getElementById("error").style.display = "block"
+        document.getElementById("error").innerText = "Could not find book: " + id
+    }
+    if(match?.params?.id === "all"){
+      getAllbooks()
+    }
+}
+document.getElementById("find-book-id").value = ""
 }
 
 export async function getAllbooks() {
   try {
     const booksFromServer = await fetch(URL).then(res => res.json())
     showAllData(booksFromServer)
+    window.router.navigate("books?id=all")
   }
   catch (err) {
     console.error("UPPPPPS: " + err) //This can be done better
@@ -90,4 +106,56 @@ async function deletebook(id) {
     headers: { "Accept": "application/json" }
   };
   await fetch(URL +"/"+id, options).then(res => handleHttpErrors(res))
+}
+
+async function findBookById(){
+  const id = document.getElementById("find-book-id").value
+  if (id == "") {
+    getAllbooks()
+    document.getElementById("tbl-body").innerHTML = ""
+    getAllbooks()
+  }
+  try {
+    const book = await fetch(URL + "/" + id).then(res => res.json())
+    document.getElementById("tbl-body").innerHTML = ""
+    const tableRowsArray = `
+    <tr>                                
+      <td>${book.id} </td>              
+      <td>${book.title} </td>                     
+      <td>${book.author}</td>  
+      <td>${book.publisher}</td>
+      <td>${book.publishYear}</td>
+      <td><button id="${book.id}-column-id" type="button"  class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button></td>      
+    </tr>`
+    document.getElementById("tbl-body").innerHTML = sanitizeStringWithTableRows(tableRowsArray)
+    window.router.navigate("books?id=" + id)
+  }
+  catch (err) {
+    console.error("UPPPPPS: " + err) //This can be done better
+  }
+}
+async function renderBook(id){
+  if (id == "") {
+    getAllbooks()
+    document.getElementById("tbl-body").innerHTML = ""
+    getAllbooks()
+  }
+  try {
+    const book = await fetch(URL + "/" + id).then(res => res.json())
+    document.getElementById("tbl-body").innerHTML = ""
+    const tableRowsArray = `
+    <tr>                                
+      <td>${book.id} </td>              
+      <td>${book.title} </td>                     
+      <td>${book.author}</td>  
+      <td>${book.publisher}</td>
+      <td>${book.publishYear}</td>
+      <td><button id="${book.id}-column-id" type="button"  class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button></td>      
+    </tr>`
+    document.getElementById("tbl-body").innerHTML = sanitizeStringWithTableRows(tableRowsArray)
+    window.router.navigate("books?id=" + id)
+  }
+  catch (err) {
+    console.error("UPPPPPS: " + err) //This can be done better
+  }
 }
