@@ -31,7 +31,7 @@ async function fetchUserData() {
 
 async function renderUser(id) {
   try {
-    const user = await fetch(URL + id).then(res => res.json())
+    const user = await fetch(URL +"/"+ id).then(res => res.json())
     //jsonplaceholder returns an empty object for users not found, NOT an error
     if (Object.keys(user).length === 0) {  //checks for an empty object = {}
       throw new Error("No user found for id:" + id)

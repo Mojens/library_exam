@@ -9,7 +9,7 @@ import { initNavigate } from "./pages/navigate/navigate.js"
 import { showMatchObject } from "./pages/show-match/match.js"
 import { initBooks } from "./pages/books/books.js"
 import { initFindUser } from "./pages/findUser/findUser.js"
-import { initEditUser } from "./pages/editUser/editUser.js"
+import { initEditbook } from "./pages/editBook/editBook.js"
 import { initAddBook } from "./pages/addBook/addBook.js"
 
 window.addEventListener("load", async () => {
@@ -17,7 +17,7 @@ window.addEventListener("load", async () => {
   const templateAbout = await loadTemplate("./pages/about/about.html")
   const templateBooks = await loadTemplate("./pages/books/books.html")
   const templateFindUser = await loadTemplate("./pages/findUser/findUser.html")
-  const templateEditUser = await loadTemplate("./pages/editUser/editUser.html")
+  const templateEditBook = await loadTemplate("./pages/editBook/editBook.html")
   const templateNavigate = await loadTemplate("./pages/navigate/navigate.html")
   const templateMatch = await loadTemplate("./pages/show-match/match.html")
   const templateNotFound = await loadTemplate("./pages/notFound/notFound.html")
@@ -54,9 +54,9 @@ window.addEventListener("load", async () => {
         renderTemplate(templateFindUser, "content")
         initFindUser(match)
       },
-      "/edit-user": (match) => {
-        renderTemplate(templateEditUser, "content")
-        initEditUser(match)
+      "/edit-book": (match) => {
+        renderTemplate(templateEditBook, "content")
+        initEditbook(match)
       },
       "/add-book": () => {
         renderTemplate(templateAddBook, "content")

@@ -46,7 +46,7 @@ async function showbookDetails(evt) {
     `
   if (target.classList.contains("other-page")) {
     const id = target.id.replace("-edit-book", "")
-    window.router.navigate("edit-user?id=" + id)
+    window.router.navigate("edit-book?id=" + id)
   }
 
   document.getElementById("status-modal-dot").style.backgroundColor = "green"

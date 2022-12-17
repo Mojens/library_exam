@@ -1,0 +1,43 @@
+<template>
+    <div>
+        <h3>Find Book to edit</h3>
+        <input id="book-id-input" style="width: 4%;" class="form-control"/> 
+        <button class="btn btn-dark" style="margin-top: 5px;" id="btn-fetch-book">Get Book Info</button>
+    </div>
+    <h3 id="error" style="color: red;border: 2px black solid;width: 25%;margin-top: 2%;padding: 5px;display: none;"></h3>
+    <form id="edit-form">
+        <h3 style="margin-top: 1em;" id="id"></h3>
+        <div class="form-row">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="inputEmail4">Title</label>
+                <input type="text" class="form-control" id="title-edit-input" placeholder="Harry Potter & co." required>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="inputPassword4">Author</label>
+                <input type="text" class="form-control" id="author-edit-input" placeholder="J.K Rowling" required>
+            </div>
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="inputAddress">isbn</label>
+            <input type="text" class="form-control" id="isbn-edit-input" placeholder="12312333" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="inputAddress2">publisher</label>
+            <input type="text" class="form-control" id="publisher-edit-input" placeholder="Gyldendal" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <label for="inputAddress2">Publish Year</label>
+            <input type="text" class="form-control" id="publish-year-edit-input" placeholder="2008" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 15px;">
+            <div class="form-check">
+                <input class="form-check-input bg-dark" type="checkbox" id="gridCheck" required>
+                <label class="form-check-label" for="gridCheck">
+                    Er du sikker ?
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark">Edit Book</button>
+    </form>
+
+</template>
