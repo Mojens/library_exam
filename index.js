@@ -10,6 +10,8 @@ import { initEditbook } from "./pages/editBook/editBook.js"
 import { initAddBook } from "./pages/addBook/addBook.js"
 import { initBorrowedBooks } from "./pages/borrowedBooks/borrowedBooks.js"
 import { initExceededBooks } from "./pages/exceededBooks/exceededBooks.js"
+import { initAddLoan } from "./pages/addLoan/addLoan.js"
+
 
 window.addEventListener("load", async () => {
 
@@ -41,8 +43,11 @@ window.addEventListener("load", async () => {
       "/": () => document.getElementById("content").innerHTML =
         `<h2>Home</h2>
       <p style='margin-top:2em'>
-      This is the content of the Home Route
+      This program needs a backend to work.
+      Clone this project: 
       </p>
+      <a href="https://github.com/Mojens/library">Github link for backend</a><br>
+      <a href="https://github.com/Mojens/library_exam">Github link for Frontend</a>
      `,
       "/about": () => renderTemplate(templateAbout, "content"),
 
@@ -60,6 +65,7 @@ window.addEventListener("load", async () => {
       }, 
       "/add-loan": () => {
         renderTemplate(templateAddLoan, "content")
+        initAddLoan()
       },
       "/add-reservation": () => {
         renderTemplate(templateAddReservation, "content")

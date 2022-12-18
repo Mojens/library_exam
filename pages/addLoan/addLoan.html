@@ -1,3 +1,26 @@
 <template>
-
+    <h1>Register New Loan</h1>
+    <h3 id="error" style="color: red;"></h3>
+    <h3 id="succes" style="color: green;"></h3>
+    <div class="form-group">
+      <label for="return-loan-date">Return Date</label>
+      <input type="date" class="form-control" id="return-loan-date">
+    </div>
+     <div class="form-group">
+      <label for="return-loan-date">Due Date</label>
+      <input type="date" class="form-control" id="due-loan-date">
+    </div>
+    <div class="form-group">
+      <label for="return-loan-date">Checkout Date</label>
+      <input type="date" class="form-control" id="check-out-loan-date">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Member</label>
+      <select class="form-control" id="add-loan-members"></select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Books</label>
+      <select multiple class="form-control" id="add-loan-books"></select>
+    </div>
+    <button class="btn btn-dark" style="margin-top: 1%;" id="create-loan-btn">Register New Loan</button>
 </template>

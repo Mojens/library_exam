@@ -1,6 +1,26 @@
 <template>
-  <h2>About</h2>
-  <p>Her kan der komme en masse info "had id been a real project"</p>
+  <h1>About</h1>
+  <h2>Exam Preparation Fall 2022</h2>
+  <p>A (highly) suggested way to prepare for the exam  is via this exercise.
+
+    You should take it as a representative example of the complexity you can expect for  the 24 hours exam (obviously it will be a completely different domain you have to implement)
+    
+    The overall idea is to create a reservation system for a simple library
+    
+    Initially the product owner has come up with this simple domain model, which models most of what  is relevant for this exercise.
+    Observe that book has been given an ID, so the library can handle more than one copy of the book (should obviously be normalised for a real project)
+    Focus on loans first, and continue with Reservation only if you have time.
+    
+    Implement as many of the requirements below, as you can handle. Make sure to include both client- and server-side code for ALL the following (skip parts in parentheses if you find this exercise hard)
+    
+    Include all the CRUD operations for Book. Use hard coded data for Members.
+    Include a way to let a member Loan a book. Verify that it's not already borrowed.
+    (add a check for whether the book is reserved first)
+    Include a way to let a Member return a book
+    (include a way to "signal" that the book was not returned in time when returned)
+    Show a list with all borrowed books
+    Show a list with all borrowed books that have exceeded the due date
+    </p>
   <p>See <a href="https://getbootstrap.com/docs/5.0/components/navbar/" target="_blank">here</a> for details about the
     responsive Bootstrap navbar used in this example</p>
 </template>
